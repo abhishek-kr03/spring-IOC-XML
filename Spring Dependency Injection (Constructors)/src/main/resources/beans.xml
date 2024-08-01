@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        				http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+    <bean id="ad1" class="com.springDependency.classes.Address">
+    	<constructor-arg name="city" value="Bengaluru"></constructor-arg>
+    	<constructor-arg name="state" value="Karnataka"></constructor-arg>
+    </bean>
+    <bean id="ad2" class="com.springDependency.classes.Address">
+    	<constructor-arg name="city" value="Hyderabad"></constructor-arg>
+    	<constructor-arg name="state" value="Telangana"></constructor-arg>
+    </bean>
+    
+	<bean id="gc" class="com.springDependency.customersImpl.GoldCustomers">
+		<constructor-arg name="address" ref="ad1"></constructor-arg>
+		<constructor-arg name="type" value="Gold Customers"></constructor-arg>
+	</bean>
+	<bean id="pc" class="com.springDependency.customersImpl.PlatinumCustomers">
+		<constructor-arg name = "address" ref="ad2"></constructor-arg>
+		<constructor-arg name="type" value="Platinum Customers"></constructor-arg>
+	</bean>
+	
+</beans>
